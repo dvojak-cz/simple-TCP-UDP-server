@@ -33,8 +33,8 @@ func response(udpServer net.PacketConn, addr net.Addr, buffer []byte) {
 		clientData = string(buffer)
 		clientAddr = fmt.Sprintf("%s://%s", addr.Network(), addr.String())
 		response   = fmt.Sprintf(
-			"time: %s | client: %s | data: %s",
-			time.Now().String(), clientData, clientData)
+			"time: %s | client: %s | data: %s | \t",
+			time.Now().String(), clientAddr, clientData)
 	)
 	log.Printf("[%d]New connection receiver %s", connectionId, clientAddr)
 	log.Printf("[%d]>>> %s", connectionId, clientData)
